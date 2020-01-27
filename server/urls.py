@@ -20,3 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls'))
 ]
+admin.site.site_header = "Wangechi Blog"
+admin.site.site_title = "Blog Admin Portal"
+admin.site.index_title = "Welcome to Wangechi's Blog Portal"

@@ -4,10 +4,12 @@ from django.utils import timezone
 
 
 # Create your models here.
-
+class Category(models.Model):
+    title = models.CharField(max_length=255, verbose_name="Title")
 
 class Blog(models.Model):
     Title = models.CharField(max_length=120)
+    category = models.ForeignKey(Category, verbose_name="Category", on_delete=models.DO_NOTHING)
     picture = models.ImageField(upload_to='inage/', null=False)
     textarea = RichTextField()
     published_date = models.DateTimeField(blank=True, null=True)
@@ -24,3 +26,4 @@ class Blog(models.Model):
         picture = cls.objects.all()
 
         return picture
+
