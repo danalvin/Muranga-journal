@@ -17,8 +17,8 @@
     <!-- CSS
     ================================================== -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="stylesheet" href="./static/css/vendor.css">
-    <link rel="stylesheet" href="./static/css/main.css">
+    <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
     <!-- script
     ================================================== -->
@@ -50,7 +50,7 @@
 
         <div class="header__logo">
             <a class="logo" href="index.html">
-                <img src="images/logo.svg" alt="Homepage">
+                <img src="{% static 'images/logo.svg' %}" alt="">
             </a>
         </div> <!-- end header__logo -->
 
@@ -118,7 +118,7 @@
                     <div class="featured__slide">
                         <div class="entry">
 
-                            <div class="entry__background" style="background-image:url('images/thumbs/featured/featured-guitarman.jpg');"></div>
+                            <div class="entry__background" style="background-image:url('{% static 'images/thumbs/featured/featured-guitarman.jpg' %}');"></div>
                             
                             <div class="entry__content">
                                 <span class="entry__category"><a href="#0">Music</a></span>
@@ -127,7 +127,7 @@
 
                                 <div class="entry__info">
                                     <a href="#0" class="entry__profile-pic">
-                                        <img class="avatar" src="images/avatars/user-05.jpg" alt="">
+                                        <img class="avatar" src="{% static 'images/avatars/user-05.jpg' %}" alt="">
                                     </a>
                                     <ul class="entry__meta">
                                         <li><a href="#0">Jonathan Smith</a></li>
@@ -143,7 +143,7 @@
 
                         <div class="entry">
 
-                            <div class="entry__background" style="background-image:url('images/thumbs/featured/featured-watch.jpg');"></div>
+                            <div class="entry__background" style="background-image:url('{% static 'images/thumbs/featured/featured-watch.jpg' %}');"></div>
                             
                             <div class="entry__content">
                                 <span class="entry__category"><a href="#0">Management</a></span>
@@ -152,7 +152,7 @@
 
                                 <div class="entry__info">
                                     <a href="#0" class="entry__profile-pic">
-                                        <img class="avatar" src="images/avatars/user-03.jpg" alt="">
+                                        <img class="avatar" src="{% static 'images/avatars/user-03.jpg' %}" alt="">
                                     </a>
 
                                     <ul class="entry__meta">
@@ -723,9 +723,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <!-- Java Script
     ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/plugin.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 
 </body>
 
