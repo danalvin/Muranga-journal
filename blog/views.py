@@ -20,13 +20,14 @@ class Bloglist(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["HOT"] = self.model.objects.filter(published_date__month=timezone.now().month)[:3]
+        context["trendings"] = self.model.objects.filter(published_date__month=timezone.now().month)[:3]
         return context
+
 
 
 class BlogDetailView(DetailView):
     model = Blog
-    template_name = 'blog-details.html'
+    template_name = "blog-details.html"
     context_object_name = 'post'
     pk_url_kwarg = 'id'
 

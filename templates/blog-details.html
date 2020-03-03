@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block content %}  
+    <section class="s-content s-content--top-padding s-content--narrow">
+
+        <article class="row entry format-standard">
+
+            <div class="entry__media col-full">
+                <div class="entry__post-thumb">
+                    <img src="{{ post.image.url }}" 
+                         srcset="{{ post.image.url }} 2000w, 
+                                 {{ post.image.url }} 1000w, 
+                                 {{ post.image.url }} 500w" 
+                         sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+                </div>
+            </div>
+
+            <div class="entry__header col-full">
+                <h1 class="entry__header-title display-1">
+                   {{ post.Title }}
+                </h1>
+                <ul class="entry__header-meta">
+                    <li class="date">{{ post.published_date }}</li>
+                    
+                </ul>
+            </div>
+
+            <div class="col-full entry__main">
+
+                <p class="lead drop-cap">{{ post.textarea | safe }}</p>
+                
+                                <div class="entry__taxonomies">
+                    <div class="entry__cat">
+                        <h5>Posted In: </h5>
+                        <span class="entry__tax-list">
+                            <a href="#0">{{ post.category }}</a>
+                            
+                        </span>
+                    </div> <!-- end entry__cat -->
+
+                    
+
+            </div> <!-- s-entry__main -->
+
+        </article> <!-- end entry/article -->
+
+    </section> <!-- end s-content -->
+{% endblock %}

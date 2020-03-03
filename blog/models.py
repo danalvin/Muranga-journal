@@ -16,7 +16,7 @@ class Category(models.Model):
 class Blog(models.Model):
     Title = models.CharField(max_length=120)
     category = models.ForeignKey(Category, verbose_name="Category", on_delete=models.DO_NOTHING, null=True)
-    picture = models.ImageField(upload_to='inage/', null=False)
+    image = models.ImageField(upload_to='image/blog/', null=False)
     textarea = RichTextField()
     published_date = models.DateTimeField(blank=True, null=True) 
     slug = models.SlugField(unique=True, max_length=100, null=True)
@@ -30,11 +30,11 @@ class Blog(models.Model):
     
     @classmethod
     def blog_image(cls):
-        picture = cls.objects.all()
+        image = cls.objects.all()
 
-        return picture
+        return image
 
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
-        return super(Post, self).save(*args, **kwargs)
+        return super(Blog, self).save(*args, **kwargs)
