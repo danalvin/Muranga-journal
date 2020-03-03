@@ -1816,8 +1816,8 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 .header__logo img {
-  width: 165px;
-  height: 25px;
+  width: 270px;
+  height: 75px;
 }
 
 /* -------------------------------------------------------------------
@@ -2188,7 +2188,7 @@ body.search-is-visible {
 
   .header__logo img {
     width: 150px;
-    height: 23px;
+    height: 80px;
   }
 
   .header__search-trigger {
@@ -2234,7 +2234,7 @@ body.search-is-visible {
 
   .header__logo img {
     width: 200px;
-    height: 29px;
+    height: 80px;
   }
 
   .header__search-trigger {
@@ -2371,7 +2371,7 @@ body.search-is-visible {
 @media only screen and (max-width:600px) {
   .header__logo img {
     width: 160px;
-    height: 23px;
+    height: 86px;
   }
 
   .header__search-form input[type="search"] {
@@ -2387,7 +2387,7 @@ body.search-is-visible {
 @media only screen and (max-width:400px) {
   .header__logo img {
     width: 140px;
-    height: 21px;
+    height: 86px;
   }
 
   .header__search-form input[type="search"] {
