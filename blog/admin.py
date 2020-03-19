@@ -5,3 +5,6 @@ from .models import Blog, Category
 
 admin.site.register(Blog)
 admin.site.register(Category)
+
+class BlogAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('Title',)}

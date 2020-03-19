@@ -16,7 +16,7 @@ class Bloglist(ListView):
 
 
     def get_queryset(self):
-        return self.model.objects.all()[:6]
+        return self.model.objects.all().order_by('-published_date')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

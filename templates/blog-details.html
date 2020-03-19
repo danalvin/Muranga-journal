@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %} 
+{% load social_share %}
 
 {% block content %}  
     <section class="s-content s-content--top-padding s-content--narrow">
@@ -39,6 +40,16 @@
                         </span>
                     </div> <!-- end entry__cat -->
 
+
+                    <div class="entry__cat">
+                        <h5>Share on : </h5>
+                        <span class="entry__tax-list">
+                            
+                        {% post_to_twitter "New Blog: {{post.Title}}. Check it out!" object_or_url "Post to Twitter" %}
+                        {% post_to_whatsapp object_or_url "Share via WhatsApp" %}
+                            
+                        </span>
+                    </div> <!-- end entry__cat -->
                     
 
             </div> <!-- s-entry__main -->

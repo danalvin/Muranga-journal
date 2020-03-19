@@ -1,6 +1,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.utils import timezone
+from django.urls import reverse
 
 
 # Create your models here.
@@ -35,6 +36,8 @@ class Blog(models.Model):
         return image
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
-        return super(Blog, self).save(*args, **kwargs)
+        self.slug = self.slug or slugify(self.title)
+        super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('show_post', args=[Blog.slug])
