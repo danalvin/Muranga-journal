@@ -35,9 +35,10 @@ class Blog(models.Model):
 
         return image
 
-    def save(self, *args, **kwargs):
-        self.slug = self.slug or slugify(self.title)
-        super().save(*args, **kwargs)
+    def save(self, *args, **kwargs): # new
+        if not self.slug:
+            self.slug = slugify(self.title)
+        return super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('show_post', args=[Blog.slug])
+        return reverse('blog-details', kwargs={'slug': self.slug})
