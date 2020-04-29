@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
+{% load blog_tasks %}
 {% load static %} 
 {% load social_share %}
 
 {% block content %}  
+
+                {% show_categories %}
     <section class="s-content s-content--top-padding s-content--narrow">
 
         <article class="row entry format-standard">
@@ -20,6 +23,7 @@
             <div class="entry__header col-full">
                 <h1 class="entry__header-title display-1">
                    {{ post.Title }}
+                {% show_categories %}
                 </h1>
                 <ul class="entry__header-meta">
                     <li class="date">{{ post.published_date }}</li>

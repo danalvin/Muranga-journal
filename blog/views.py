@@ -1,11 +1,19 @@
 from django.shortcuts import render
 from .models import Blog
 from django.utils import timezone
-
+from django.shortcuts import render
+from django.template import RequestContext
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Category
 from django.views.generic import ListView, DetailView
 from django.http import Http404, HttpResponseRedirect
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.apps import apps
 
 # Create your views here.
+
+
+#=================================================================
 
 
 class Bloglist(ListView):
@@ -23,6 +31,7 @@ class Bloglist(ListView):
         context["trendings"] = self.model.objects.filter(published_date__month=timezone.now().month)[:3]
         return context
 
+#=================================================================
 
 
 class BlogDetailView(DetailView):
@@ -46,5 +55,53 @@ class BlogDetailView(DetailView):
         context = self.get_context_data(object= self.object)
         return self.render_to_response(context)
 
+#=================================================================
 
-  
+
+def PostList(request, category_slug = None, tag_slug = None, author_id = None):
+    """ Lists all posts, filtered by category and tag, and paginates the results """
+
+    object_list = Blog.objects.filter(status='published_date')
+    category = None
+    meta_title = None 
+    meta_description = None 
+    canonical = None
+    posts = Blog.objects.all()
+
+    # If category given
+    if(category_slug):
+        category = get_object_or_404(Category, slug = category_slug)
+        object_list = object_list.filter(category__in=[category])
+        canonical = request.build_absolute_uri(category.get_absolute_url())
+        meta_description = category.title
+        meta_title = category.title
+
+
+    return render(request, 'post_list.html', {'posts': posts,
+                                                        'meta_title': meta_title,
+                                                        'meta_description': meta_description,
+                                                        'canonical': canonical,
+                                                        'category': category,})
+
+#======================================================================
+
+def error_404(request, exception):
+       
+        return render(request,'404.html', data)
+
+#=================================================================
+
+
+def error_500(request):
+        data = {}
+        return render(request,'500.html', data)
+        
+#=================================================================
+
+
+
+def error_403(request):
+        data = {}
+        return render(request,'404.html', data)
+
+#=================================================================

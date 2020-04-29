@@ -20,9 +20,9 @@
                             <div class="entry__background" style="background-image:url('{{ post.image.url }}');"></div>
                             
                             <div class="entry__content">
-                                <span class="entry__category"><a href="blog/{{ post.slug }}">{{ post.category }}</a></span>
+                                <span class="entry__category"><a href="article/{{ post.slug }}">{{ post.category }}</a></span>
 
-                                <h1><a href="blog/{{ post.slug }}" title="">{{ trending.Title }}</a></h1>
+                                <h1><a href="article/{{ post.slug }}" title="">{{ trending.Title }}</a></h1>
 
                                 <div class="entry__info">
                                     <ul class="entry__meta">
@@ -54,7 +54,7 @@
                     
                     <div class="item-entry" data-aos="zoom-in">
                         <div class="item-entry__thumb">
-                            <a href="blog/{{ post.slug }}" class="item-entry__thumb-link">
+                            <a href="article/{{ post.slug }}" class="item-entry__thumb-link">
                                 <img src="{{ post.image.url }}" 
                                      srcset="{{ post.image.url }} 1x, {{ post.image.url }} 2x" alt="">
                             </a>
@@ -62,13 +62,13 @@
         
                         <div class="item-entry__text">    
                             <div class="item-entry__cat">
-                                <a href="blog/{{ post.slug }}">{{ post.category }}</a> 
+                                <a href="article/{{ post.slug }}">{{ post.category }}</a> 
                             </div>
     
-                            <h1 class="item-entry__title"><a href="blog/{{ post.slug }}">{{ post.Title }}</a></h1>
+                            <h1 class="item-entry__title"><a href="article/{{ post.slug }}">{{ post.Title }}</a></h1>
                                 
                             <div class="item-entry__date">
-                                <a href="blog/{{ post.slug }}">{{ post.published_date }}</a>
+                                <a href="article/{{ post.slug }}">{{ post.published_date }}</a>
                             </div>
                         </div>
                     </div> <!-- item-entry -->
