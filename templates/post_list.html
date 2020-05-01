@@ -15,13 +15,13 @@
 
     {% for post in posts %}
         <div class="card mt-0 mb-5">
-                <a href="{{ post.get_absolute_url }}" title="{{ post.Title|capfirst }}">
+                <a href="{% url 'blog:blog-details'  post.slug %}" title="{{ post.Title|capfirst }}">
                     <img class="card-img-top" src="{{ MEDIA_URL }}{{ post.image }}" alt="{{ post.Title|capfirst }}">
                 </a>
             <div class="card-body pl-5 pr-5 pb-4 pt-4">
-                <h2 class="card-title mt-2"><a href="{{ post.get_absolute_url }}" class="text-dark">{{ post.title|capfirst }}</a></h2>
+                <h2 class="card-title mt-2"><a href="{% url 'blog:blog-details'  post.slug %}" class="text-dark">{{ post.title|capfirst }}</a></h2>
                 <p class="card-text mt-4">{{ post.body|striptags|truncatewords_html:50 }}</p>
-                <a href="{{ post.get_absolute_url }}" class="btn btn-light mt-4 mb-2"><strong>{% trans "Continue reading" %}</strong></a>
+                <a href="{% url 'blog:blog-details'  post.slug %}" class="btn btn-light mt-4 mb-2"><strong>{% trans "Continue reading" %}</strong></a>
             </div>
             <div class="card-footer text-muted">
                     {{ post.publish|date:"M d, Y" }} &nbsp;&nbsp;

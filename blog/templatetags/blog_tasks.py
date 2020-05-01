@@ -26,3 +26,9 @@ def show_categories():
 def show_latest_posts(count = 5, group_name = 'Recent posts'):
     post_list = Blog.published.order_by('-published_date')[:count]
     return{'post_list': post_list, 'group_name': group_name}
+
+
+@register.inclusion_tag('_categoriessidelist.html')
+def show_categories_side():
+    categories = Category.objects.annotate(post_count=Count("blog")).filter(post_count__gt=0).order_by('-post_count','title') 
+    return{'categories': categories}
