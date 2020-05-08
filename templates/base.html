@@ -1,175 +1,155 @@
 {% load static %} 
 {% load blog_tasks %}
-<!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en">
+
 <head>
-
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>Mjournal</title>
+    <meta charset="UTF-8">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Title -->
+    <title>Mjournal</title>
 
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/favicon.ico">
 
-    <!-- script
-    ================================================== -->
-    <script src="{% static 'js/modernizr.js' %}"></script>
-
-    <!-- favicons
-    ================================================== -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 
 </head>
 
-<body id="top">
+<body>
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
 
-    <!-- preloader
-    ================================================== -->
-    {% comment %} <div id="preloader">
-        <div id="loader" class="dots-fade">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div> {% endcomment %}
-
-
-    <!-- header
-    ================================================== -->
-    <header class="s-header header">
-
-        <div class="header__logo">
-            <a class="logo" href="/">
-                <img src="{% static 'images/logo.png' %}" alt="">
-            </a>
-        </div> <!-- end header__logo -->
-
-        <a class="header__search-trigger" href="#0"></a>
-        <div class="header__search">
-
-            <form role="search" method="get" class="header__search-form" action="#">
-                <label>
-                    <span class="hide-content">Search for:</span>
-                    <input type="search" class="search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
-                </label>
-                <input type="submit" class="search-submit" value="Search">
-            </form>
-
-            <a href="#0" title="Close Search" class="header__overlay-close">Close</a>
-
-        </div>  <!-- end header__search -->
-
-        <a class="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
-        <nav class="header__nav-wrap">
-
-            <h2 class="header__nav-heading h6">Navigate to</h2>
-
-            <ul class="header__nav">
-                <li class="current"><a href="{% url 'blog:blog' %}" title="">Home</a></li>
-                <li><a href="#" title="">About</a></li>
-                <li><a href="#" title="">Contact</a></li>
-            </ul> <!-- end header__nav -->
-
-            <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>
-
-        </nav> <!-- end header__nav-wrap -->
-
-    </header> <!-- s-header -->
-
-{% block content %} {% endblock %}
-
-
-    <!-- s-footer
-    ================================================== -->
-    <footer class="s-footer">
-
-        <div class="s-footer__main">
-            <div class="row">
-                
-                <div class="col-six tab-full s-footer__about">
-                        
-                    <h4>About Muranga Journal</h4>
-
-                {% show_categories %}
-                    <p>This is a blog post that is used to keep the people of muranga up to date with whaterver is going on in their county!.</p>
-
-                </div> <!-- end s-footer__about -->
-
-                <div class="col-six tab-full s-footer__subscribe">
-                        
-                    <h4>Our Newsletter</h4>
-
-                    <p>Please subscribe to our newsletter</p>
-
-                    <div class="subscribe-form">
-                        <form id="mc-form" class="group" novalidate="true">
-
-                            <input type="email" value="" name="EMAIL" class="email" id="mc-email" placeholder="Email Address" required="">
-                
-                            <input type="submit" name="subscribe" value="Send">
-                
-                            <label for="mc-email" class="subscribe-message"></label>
-                
-                        </form>
+        <!-- Top Header Area -->
+        <div class="top-header-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="top-header-content d-flex align-items-center justify-content-between">
+                            <!-- Logo -->
+                            <div class="logo">
+                                <a href="/"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
+                            </div>
+                        </div>
                     </div>
-
-                </div> <!-- end s-footer__subscribe -->
-
+                </div>
             </div>
-        </div> <!-- end s-footer__main -->
+        </div>
 
-        <div class="s-footer__bottom">
+        <!-- Navbar Area -->
+        <div class="newspaper-main-menu" id="stickyMenu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="newspaperNav">
+
+                        <!-- Logo -->
+                        <div class="logo">
+                            <a href="index.html"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
+                        </div>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li class="active"><a href="/">Home</a></li>
+
+                                    {% show_categories_side %}
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="popular-news-area section-padding-80-50">
+        <div class="container">
             <div class="row">
+                <div class="col-12 col-lg-8">
+                    
 
-                <div class="col-six">
-                    <ul class="footer-social">
-                        <li>
-                            <a href="#0"><i class="fab fa-facebook"></i></a>
-                        </li>
-                        <li>
-                            <a href="#0"><i class="fab fa-twitter"></i></a>
-                        </li>
-                        <li>
-                            <a href="#0"><i class="fab fa-instagram"></i></a>
-                        </li>
-                        <li>
-                            <a href="#0"><i class="fab fa-youtube"></i></a>
-                        </li>
-                        <li>
-                            <a href="#0"><i class="fab fa-pinterest"></i></a>
-                        </li>
-                    </ul>
+                    {% block content %} {% endblock %}
+
+                    
                 </div>
 
+                <div class="col-12 col-lg-4">
+                    <!-- Corona Widget -->
+                    {% corona %}
 
+                    <!-- Popular news Widget -->
+                    {% show_latest_posts %}
+                </div>
             </div>
-        </div> <!-- end s-footer__bottom -->
+        </div>
+    </div>
+    <!-- ##### Popular News Area End ##### -->
 
-        <div class="go-top">
-            <a class="smoothscroll" title="Back to Top" href="#top"></a>
+
+
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area">
+
+        <!-- Main Footer Area -->
+        <div class="main-footer-area">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Footer Widget Area -->
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="footer-widget-area mt-80">
+                            <!-- Footer Logo -->
+                            <div class="footer-logo">
+                                <a href="#"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
+                            </div>
+                            <!-- List -->
+                        </div>
+                    </div>
+
+                    <!-- Footer Widget Area -->
+                </div>
+            </div>
         </div>
 
-    </footer> <!-- end s-footer -->
+        <!-- Bottom Footer Area -->
+        <div class="bottom-footer-area">
+           
+        </div>
+    </footer>
+    <!-- ##### Footer Area Start ##### -->
 
-
-    <!-- Java Script
-    ================================================== -->
-    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-    <script src="{% static 'js/plugins.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
-
+    <!-- ##### All Javascript Files ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js' %} "></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
 </body>
 
 </html>

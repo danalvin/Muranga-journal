@@ -20,11 +20,11 @@ from django.urls import path, include # new
 from django.conf.urls.static import static # new
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('blogger/', admin.site.urls),
     path('', include('blog.urls'))
 ]
 if settings.DEBUG: # new
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-admin.site.site_header = "Wangechi Blog"
-admin.site.site_title = "Blog Admin Portal"
-admin.site.index_title = "Welcome to Wangechi's Blog Portal"
+admin.site.site_header = "Mjournal Administrative site"
+admin.site.site_title = "Mjournal Admin Portal"
+admin.site.index_title = "Welcome to Mjournal's Administrative Portal"

@@ -19,16 +19,16 @@ from django.apps import apps
 class Bloglist(ListView):
     template_name = "blog.html"
     model = Blog
-    paginate_by = 3
+    paginate_by = 8  
     context_object_name = 'post'
 
 
     def get_queryset(self):
-        return self.model.objects.all().order_by('-published_date')
+        return self.model.objects.all().order_by('-publishedDate')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["trendings"] = self.model.objects.filter(published_date__month=timezone.now().month)[:3]
+        context["trendings"] = self.model.objects.filter(publishedDate__month=timezone.now().month)[:3]
         return context
 
 #=================================================================
@@ -57,31 +57,24 @@ class BlogDetailView(DetailView):
 
 #=================================================================
 
+class PostList1(ListView):
+    template_name = 'post_list.html'
+    model = Blog
+    paginate_by = 8
+    context_object_name = 'posts'
 
-def PostList(request, category_slug = None, tag_slug = None, author_id = None):
-    """ Lists all posts, filtered by category and tag, and paginates the results """
+    def get_queryset(self, **kwargs):
+        self.category = get_object_or_404(Category, slug=self.kwargs['category_slug'])
+        posts=Blog.objects.filter(category=self.category.id)
+        return Blog.objects.filter(category=self.category)
 
-    object_list = Blog.objects.filter(status='published_date')
-    category = None
-    meta_title = None 
-    meta_description = None 
-    canonical = None
-    posts = Blog.objects.all()
-
-    # If category given
-    if(category_slug):
-        category = get_object_or_404(Category, slug = category_slug)
-        object_list = object_list.filter(category__in=[category])
-        canonical = request.build_absolute_uri(category.get_absolute_url())
-        meta_description = category.title
-        meta_title = category.title
+    def get_context_data(self, **kwargs):
+        context = super(PostList1, self).get_context_data(**kwargs)
+        context['category'] = self.category
+        print(context)
+        return context
 
 
-    return render(request, 'post_list.html', {'posts': posts,
-                                                        'meta_title': meta_title,
-                                                        'meta_description': meta_description,
-                                                        'canonical': canonical,
-                                                        'category': category,})
 
 #======================================================================
 

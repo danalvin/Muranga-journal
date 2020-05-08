@@ -3,8 +3,14 @@ from .models import Blog, Category
 # Register your models here.
 
 
-admin.site.register(Blog)
-admin.site.register(Category)
+
+
 
 class BlogAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('Title',)}
+
+class CatAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('title',)}
+
+admin.site.register(Blog, BlogAdmin)
+admin.site.register(Category, CatAdmin)

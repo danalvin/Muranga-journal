@@ -1,0 +1,33 @@
+{% block content %}
+                        <div class="popular-news-widget mb-50">
+                            <h3>Live Covid-19 Updates Kenya</h3>
+
+                            <!-- Single Popular Blog -->
+                            <div class="single-popular-post">
+                                <a href="#">
+                                    <h6><span>Cornfirmed Cases</span> {{ Cases }}</h6>
+                                </a>
+                            </div>
+
+                            <!-- Single Popular Blog -->
+                            <div class="single-popular-post">
+                                <a href="#">
+                                    <h6><span>Today's Cases</span>{{ todayCases }} </h6>
+                                </a>
+                            </div>
+
+                            <!-- Single Popular Blog -->
+                            <div class="single-popular-post">
+                                <a href="#">
+                                    <h6><span>Total Deaths</span> {{ deaths }}</h6>
+                                </a>
+                            </div>
+
+                            <!-- Single Popular Blog -->
+                            <div class="single-popular-post">
+                                <a href="#">
+                                    <h6><span>Recovered Cases</span> {{ recovered }} </h6>
+                                </a>
+                            </div>
+                        </div>
+{% endblock  %}

@@ -1,0 +1,20 @@
+
+<div class="popular-news-widget mb-50">
+    <h3>Popular Articles</h3>
+    {% for post in post_list %}
+    <div class="single-blog-post small-featured-post d-flex">
+        <div class="post-thumb">
+            <a href="{% url 'blog:blog-details'  post.slug %}"><img src="{{ post.image.url }}" alt=""></a>
+        </div>
+        <div class="post-data">
+            <a href="{{ post.category.get_absolute_url }}" class="post-catagory">{{ post.category }}</a>
+            <div class="post-meta">
+                <a href="{% url 'blog:blog-details'  post.slug %}" class="post-title">
+                    <h6>{{ post.Title }}</h6>
+                </a>
+                <p class="post-date">{{ post.publishedDate }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

@@ -4,61 +4,44 @@
 {% load social_share %}
 
 {% block content %}  
+<div class="row">                    
+                <div class="col-12 col-lg-8">
+                     <div class="blog-posts-area">
 
-                {% show_categories %}
-    <section class="s-content s-content--top-padding s-content--narrow">
+                        <!-- Single Featured Post -->
+                        <div class="single-blog-post featured-post single-post">
+                            <div class="post-thumb">
+                                <a href="#"><img src="{{ post.image.url }}" alt=""></a>
+                            </div>
+                            <div class="post-data">
+                                <a href="#" class="post-catagory">{{ post.category }}</a>
+                                <a href="#" class="post-title">
+                                    <h6>{{ post.Title }}</h6>
+                                     <p class="post-date">{{ post.published_date }}</span></p>
+                                </a>
+                                <div class="post-meta">
+                                    <p>{{ post.textarea | safe }}</p>
+                                    <div class="newspaper-post-like d-flex align-items-center justify-content-between">
+                                        <!-- Tags -->
+                                        
 
-        <article class="row entry format-standard">
-
-            <div class="entry__media col-full">
-                <div class="entry__post-thumb">
-                    <img src="{{ post.image.url }}" 
-                         srcset="{{ post.image.url }} 2000w, 
-                                 {{ post.image.url }} 1000w, 
-                                 {{ post.image.url }} 500w" 
-                         sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+                                        <!-- Post Like & Post Comment -->
+                                        <div class="d-flex align-items-center post-like--comments">
+                                            <div class="entry__cat">
+                                            <h5>Share on : </h5>
+                                            <span class="entry__tax-list">
+                                                
+                                            {% post_to_twitter "New Blog: {{post.Title}}. Check it out!" object_or_url "Post to Twitter" %}
+                                            {% post_to_whatsapp object_or_url "Share via WhatsApp" %}
+                                                
+                                            </span>
+                                        </div> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
                 </div>
-            </div>
-
-            <div class="entry__header col-full">
-                <h1 class="entry__header-title display-1">
-                   {{ post.Title }}
-                {% show_categories %}
-                </h1>
-                <ul class="entry__header-meta">
-                    <li class="date">{{ post.published_date }}</li>
-                    
-                </ul>
-            </div>
-
-            <div class="col-full entry__main">
-
-                <p class="lead drop-cap">{{ post.textarea | safe }}</p>
-                
-                                <div class="entry__taxonomies">
-                    <div class="entry__cat">
-                        <h5>Posted In: </h5>
-                        <span class="entry__tax-list">
-                            <a href="#0">{{ post.category }}</a>
-                            
-                        </span>
-                    </div> <!-- end entry__cat -->
-
-
-                    <div class="entry__cat">
-                        <h5>Share on : </h5>
-                        <span class="entry__tax-list">
-                            
-                        {% post_to_twitter "New Blog: {{post.Title}}. Check it out!" object_or_url "Post to Twitter" %}
-                        {% post_to_whatsapp object_or_url "Share via WhatsApp" %}
-                            
-                        </span>
-                    </div> <!-- end entry__cat -->
-                    
-
-            </div> <!-- s-entry__main -->
-
-        </article> <!-- end entry/article -->
-
-    </section> <!-- end s-content -->
+</div>
 {% endblock %}

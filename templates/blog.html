@@ -2,121 +2,47 @@
 {% load static %} 
 
 {% block content %}        
-    <!-- featured 
-    ================================================== -->
-
-
-    <section class="s-featured">
-        <div class="row">
-            <div class="col-full">                         
-
-
-                <div class="featured-slider featured" data-aos="zoom-in">
-                    {% for post in post|slice:":3" %}
-
-                    <div class="featured__slide">
-                        <div class="entry">
-                            
-                            <div class="entry__background" style="background-image:url('{{ post.image.url }}');"></div>
-                            
-                            <div class="entry__content">
-                                <span class="entry__category"><a href="article/{{ post.slug }}">{{ post.category }}</a></span>
-
-                                <h1><a href="article/{{ post.slug }}" title="">{{ trending.Title }}</a></h1>
-
-                                <div class="entry__info">
-                                    <ul class="entry__meta">
-                                        
-                                        <li>{{ post.published_date }}</li>
-                                    </ul>
+<div class="row">
+        {% for post in post %}
+                        <!-- Single Post -->
+                        <div class="col-12 col-md-6">
+                            <div class="single-blog-post style-3">
+                                <div class="post-thumb">
+                                    <a href="{% url 'blog:blog-details'  post.slug %}"><img src="{{ post.image.url }}" alt=""></a>
                                 </div>
-                            </div> <!-- end entry__content -->
-                            
-                        </div> <!-- end entry -->
-                    </div> <!-- end featured__slide -->
-                    {% endfor %}     
-                </div> <!-- end featured -->
-
-            </div> <!-- end col-full -->
+                                <div class="post-data">
+                                    <a href="{{ post.category.get_absolute_url }}" class="post-catagory">{{ post.category }}</a>
+                                    <a href="{% url 'blog:blog-details'  post.slug %}" class="post-title">
+                                        <h6>{{ post.Title }}</h6>
+                                    </a>
+                                    {% comment %} <div class="post-meta d-flex align-items-center">
+                                        <a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>
+                                        <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
+                                    </div> {% endcomment %}
+                                </div>
+                            </div>
+                        </div>
+        {% endfor %}
+</div>
+</br> </br>
+{% if is_paginated %}   
+ <div class="pager d-flex align-items-center justify-content-between">
+    {% if page_obj.has_previous %}
+        <div class="prev">
+            <a href="?page={{ page_obj.previous_page_number }}" class="active"><i class="fa fa-angle-left"></i> previous</a>
         </div>
-    </section> <!-- end s-featured -->
+    {% else %}
+    {% endif %}
+    {% if page_obj.has_next %}
+        <div class="next">
+            <a href="?page={{ page_obj.next_page_number }}">Next <i class="fa fa-angle-right"></i></a>
+        </div>
+    {% else %}
 
-
-
-
-<section class="s-content">
-        
-        <div class="row entries-wrap wide">
-         {% for post in post %}
-            <div class="entries">
-
-                <article class="col-block">
-                    
-                    <div class="item-entry" data-aos="zoom-in">
-                        <div class="item-entry__thumb">
-                            <a href="article/{{ post.slug }}" class="item-entry__thumb-link">
-                                <img src="{{ post.image.url }}" 
-                                     srcset="{{ post.image.url }} 1x, {{ post.image.url }} 2x" alt="">
-                            </a>
-                        </div>
-        
-                        <div class="item-entry__text">    
-                            <div class="item-entry__cat">
-                                <a href="article/{{ post.slug }}">{{ post.category }}</a> 
-                            </div>
-    
-                            <h1 class="item-entry__title"><a href="article/{{ post.slug }}">{{ post.Title }}</a></h1>
-                                
-                            <div class="item-entry__date">
-                                <a href="article/{{ post.slug }}">{{ post.published_date }}</a>
-                            </div>
-                        </div>
-                    </div> <!-- item-entry -->
-
-                </article> <!-- end article -->
-
-              
-            </div> <!-- end entries -->
-            {% endfor %}
-        </div> <!-- end entries-wrap -->
-
-      
+    {% endif %}
+</div>
+{% endif %}    
 
     </section> <!-- end s-content -->
-    {% if is_paginated %}
-<div class="row pagination-wrap">
-    <div class="col-full">
-        <nav class="pgn" data-aos="fade-up">
-            <ul>
-                {% if page_obj.has_previous %}
-                    <li>
-                        <a  class="pgn__prev" href="?page={{ page_obj.previous_page_number }}"</a>
-                    </li>
-                {% else %}
-                    
-                {% endif %}
-                {% for i in page_obj.paginator.page_range %}
-                    {% if page_obj.number == i %}
-                        <li>
-                            <a class="pgn__num current">{{ i }}</a>
-                        </li>
-                    {% else %}
-                        <li>
-                            <a class="pgn__num" href="?page={{ i }}">{{ i }}</a>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-                {% if page_obj.has_next %}
-                    <li>
-                        <a  class="pgn__next" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
-                    </li>
-                {% else %}
-                    
-                {% endif %}
-            </ul>
-        </nav>
-    </div>
-</div>
-{% endif %}
 
 {% endblock %}

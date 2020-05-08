@@ -39,7 +39,7 @@ class Blog(models.Model):
     image = models.ImageField(upload_to='image/blog/', null=False)
     textarea = RichTextField()
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft', verbose_name = ('Status'))
-    published_date = models.DateTimeField(blank=True, null=True) 
+    publishedDate = models.DateTimeField(blank=True, null=True) 
     slug = models.SlugField(unique=True, max_length=100, null=True)
 
     def publish(self):
