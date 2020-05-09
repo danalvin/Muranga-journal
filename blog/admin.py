@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Blog, Category
+from django.contrib.auth.models import User
 # Register your models here.
 
 
@@ -14,3 +15,4 @@ class CatAdmin(admin.ModelAdmin):
 
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(Category, CatAdmin)
+admin.site.register(User)
