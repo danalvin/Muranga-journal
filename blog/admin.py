@@ -15,4 +15,3 @@ class CatAdmin(admin.ModelAdmin):
 
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(Category, CatAdmin)
-admin.site.register(User)
