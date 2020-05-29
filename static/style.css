@@ -543,6 +543,13 @@ textarea:focus {
       text-align: center; } }
 
 /* :: 6.0 Blog Post Area */
+.blogimg {
+  object-fit: cover;
+  background-size: cover;
+  height: 300px;
+  width: 400px;
+  overflow: hidden;
+}
 .single-blog-post {
   position: relative;
   z-index: 1; }
