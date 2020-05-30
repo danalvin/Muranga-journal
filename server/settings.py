@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'blog',
     'ckeditor',
     'django_social_share',
+    'meta',
+
     
     
 ]

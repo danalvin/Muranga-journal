@@ -62,3 +62,11 @@ class Blog(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog-details', kwargs={'slug': self.slug})
+
+    _metadata = {
+        'title': 'Title',
+        'image': 'get_meta_image',
+    }
+    def get_meta_image(self):
+        if self.image:
+            return self.image.url

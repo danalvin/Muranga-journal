@@ -1,9 +1,10 @@
 {% load static %} 
+{% load meta %}
 {% load blog_tasks %}
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
+<head {% meta_namespaces %}>
+   {% include "meta/meta.html" %}
     <script data-ad-client="ca-pub-7924731979255368" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,10 +12,10 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Mjournal</title>
+    <title>Mjournal - Informing the people</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+    <link rel="icon" href="{% static 'img/core-img/logo.png' %}">
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="{% static 'style.css' %}">
