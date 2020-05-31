@@ -11,7 +11,7 @@
                         <!-- Single Featured Post -->
                         <div class="single-blog-post featured-post single-post">
                             <div class="post-thumb">
-                                <a href="#"><img src="{{ post.image.url }}" alt=""></a>
+                                <a href="#"><img src="{{ post.image.url }}" alt="" style="width: 100%;"></a>
                             </div>
                             <div class="post-data">
                                 <a href="#" class="post-catagory">{{ post.category }}</a>
@@ -34,7 +34,7 @@
                                             {% post_to_twitter "New Article from MurangaJournal: {{ post.Title }}. Check it out!" object_or_url "Post to Twitter" %}
                                             {% post_to_whatsapp object_or_url "Share via WhatsApp" %}
                                             {% post_to_facebook object_or_url "Post to Facebook" %}
-    
+
                                                 
                                             </span>
                                         </div> 

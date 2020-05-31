@@ -3,12 +3,13 @@
 {% load blog_tasks %}
 <html lang="en">
 
-<head {% meta_namespaces %}>
-   {% include "meta/meta.html" %}
+<head>
     <script data-ad-client="ca-pub-7924731979255368" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:title" content= {% if post %} '{{ post.Title }}' {% else %} "Mjournal" {% endif %} />
+    <meta property="og:image" content={% if post %} '{{ post.image.url }}' {% else %} "/" {% endif %}>
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
