@@ -46,3 +46,8 @@ def corona():
         'recovered': geodata['recovered'],
         'active': geodata['active']
     }
+
+@register.inclusion_tag('slider.html')
+def slider_featured(count = 5, group_name = 'featured posts'):
+    post_list = Blog.objects.order_by('-publishedDate')[:count]
+    return{'post_list': post_list, 'group_name': group_name}
