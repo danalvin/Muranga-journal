@@ -19,7 +19,7 @@
     <div class="carousel-item__info">
       <div class="carousel-item__container">
       <h2 class="carousel-item__subtitle">{{ post.category }} </h2>
-      <a href="{% url 'blog:blog-details'  post.slug %}" <h1 class="carousel-item__title">{{ post.Title }}</h1></a>
+      <h1  class="carousel-item__title">{{ post.Title }}</h1>
       <p class="carousel-item__description">{{ post.textarea | safe | truncatechars:200 }}...</p>
       <a href="{% url 'blog:blog-details'  post.slug %}" class="carousel-item__btn">Read More</a>
         </div>
