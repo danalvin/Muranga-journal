@@ -1226,7 +1226,13 @@ body {
   position: relative;
 
 }
-
+@media (max-width: 993px) 
+{
+    .carousel
+    {
+        display: none;
+    }
+}
 .carousel-item {
   visibility:visible;
     display: flex;

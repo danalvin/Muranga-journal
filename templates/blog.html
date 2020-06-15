@@ -1,8 +1,13 @@
 {% extends 'base.html' %}
 {% load static %} 
+{% load blog_tasks %}
 
 {% block content %}        
-
+        {% slider_featured %}
+        </br>        </br>
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    
 <div class="row">
         {% for post in post %}
                         <!-- Single Post -->

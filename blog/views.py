@@ -73,7 +73,6 @@ class PostList1(ListView):
     def get_context_data(self, **kwargs):
         context = super(PostList1, self).get_context_data(**kwargs)
         context['category'] = self.category
-        print(context)
         return context
 
 
