@@ -1,17 +1,79 @@
-{% extends 'base.html' %}
-{% load static %} 
+<style>
 
-{% block content %} 
+body{ 
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background: #fff;
+  color: #131313;
+  font-size: 96px;
+  font-family: 'Fira Mono', monospace;
+  letter-spacing: -7px;
+}
 
-<div class="col-six tab-full">
+div{
+  animation: glitch 1s linear infinite;
+}
 
-                <h3>Buttons</h3>
+@keyframes glitch{
+  2%,64%{
+    transform: translate(2px,0) skew(0deg);
+  }
+  4%,60%{
+    transform: translate(-2px,0) skew(0deg);
+  }
+  62%{
+    transform: translate(0,0) skew(5deg); 
+  }
+}
 
-                <p>
-                    <a class="btn btn--primary full-width" href="#0">Primary Button</a>
-                    <a class="btn full-width" href="#0">Default Button</a>
-                    <a class="btn btn--stroke full-width" href="#0">Stroke Button</a>
-                </p>
-</div>
+div:before,
+div:after{
+  content: attr(title);
+  position: absolute;
+  left: 0;
+}
 
-{% endblock %}
+div:before{
+  animation: glitchTop 1s linear infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+
+@keyframes glitchTop{
+  2%,64%{
+    transform: translate(2px,-2px);
+  }
+  4%,60%{
+    transform: translate(-2px,2px);
+  }
+  62%{
+    transform: translate(13px,-1px) skew(-13deg); 
+  }
+}
+
+div:after{
+  animation: glitchBotom 1.5s linear infinite;
+  clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchBotom{
+  2%,64%{
+    transform: translate(-2px,0);
+  }
+  4%,60%{
+    transform: translate(-2px,0);
+  }
+  62%{
+    transform: translate(-22px,5px) skew(21deg); 
+  }
+}
+</style>
+
+
+<div title="404">404</div>
+
