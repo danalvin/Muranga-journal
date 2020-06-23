@@ -1,31 +1,27 @@
-<body>
 <div class="carousel">
-  <div class="carousel__nav">
-   <span id="moveLeft" class="carousel__arrow">
-        <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
-    <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
-</svg>
-    </span>
-    <span id="moveRight" class="carousel__arrow" >
-      <svg class="carousel__icon"  width="24" height="24" viewBox="0 0 24 24">
-  <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
-</svg>    
-    </span>
-  </div>
-      {% for post in post_list %}
-
-  <div class="carousel-item">
-    <div class="carousel-item__image" style="background-image: url('{{ post.image.url }}');"></div>
-    <div class="carousel-item__info">
-      <div class="carousel-item__container">
-      <h2 class="carousel-item__subtitle">{{ post.category }} </h2>
-      <h1  class="carousel-item__title">{{ post.Title }}</h1>
-      <p class="carousel-item__description">{{ post.textarea | safe | truncatechars:100 }}...</p>
-      <a href="{% url 'blog:blog-details'  post.slug %}" class="carousel-item__btn">Read More</a>
-        </div>
-    </div>
-  </div>  
-    {% endfor %}
-  
+   <div class="carousel__nav">
+      <span id="moveLeft" class="carousel__arrow">
+         <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+         </svg>
+      </span>
+      <span id="moveRight" class="carousel__arrow" >
+         <svg class="carousel__icon"  width="24" height="24" viewBox="0 0 24 24">
+            <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+         </svg>
+      </span>
+   </div>
+   {% for post in post_list %}
+   <div class="carousel-item">
+      <div class="carousel-item__image" style="background-image: url('{{ post.image.url }}');"></div>
+      <div class="carousel-item__info">
+         <div class="carousel-item__container">
+            <h2 class="carousel-item__subtitle">{{ post.category }} </h2>
+            <h1  class="carousel-item__title">{{ post.Title }}</h1>
+            <p class="carousel-item__description">{{ post.textarea | safe | truncatechars:100 }}...</p>
+            <a href="{% url 'blog:blog-details'  post.slug %}" class="carousel-item__btn">Read More</a>
+         </div>
+      </div>
+   </div>
+   {% endfor %}
 </div>
-</body>
