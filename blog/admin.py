@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 
 class BlogAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('Title',)}
+    list_display = ['Title', 'category', 'publishedDate']
 
 class CatAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
