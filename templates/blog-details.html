@@ -3,50 +3,50 @@
 {% load static %} 
 {% load social_share %}
 {% block content %} 
-            <div class="row">
-                <div class="col-12 col-lg-8">
-                    
- 
-<div class="row">                    
-                <div class="col-12 col-lg-12">
-                     <div class="blog-posts-area">
-
-                        <!-- Single Featured Post -->
-                        <div class="single-blog-post featured-post single-post">
-                            <div class="post-thumb">
-                                <a href="#"><img src="{{ post.image.url }}" alt="" style="width: 100%;"></a>
-                            </div>
-                            <div class="post-data">
-                                <a href="#" class="post-catagory">{{ post.category }}</a>
-                                <a href="#" class="post-title">
-                                    <h6>{{ post.Title }}</h6>
-                                     <p class="post-date">{{ post.published_date }}</span></p>
-                                </a>
-                                <div class="post-meta">
-                                    <p>{{ post.textarea | safe }}</p>
-                                    <div class="newspaper-post-like d-flex align-items-center justify-content-between">
-                                        <!-- Tags -->
-                                        
-
-                                        <!-- Post Like & Post Comment -->
-                                        <div class="d-flex align-items-center post-like--comments">
-                                            <div class="entry__cat">
-                                            <h5>Share on : </h5>
-                                            <span class="entry__tax-list">
-                                                
-                                            {% post_to_twitter "New Article from MurangaJournal: {{ post.Title }}. Check it out!" object_or_url "Post to Twitter" %}
-                                            {% post_to_whatsapp object_or_url "Share via WhatsApp" %}
-                                            {% post_to_facebook object_or_url "Post to Facebook" %}
-
-                                                
-                                            </span>
-                                        </div> 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
+<div class="row">
+   <div class="col-12 col-lg-8">
+      <div class="row">
+         <div class="col-12 col-lg-12">
+            <div class="blog-posts-area">
+               <!-- Single Featured Post -->
+               <div class="single-blog-post featured-post single-post">
+                  <div class="post-thumb">
+                     <a href="#"><img src="{{ post.image.url }}" alt="" style="width: 100%;"></a>
+                  </div>
+                  <div class="post-data">
+                     <a href="#" class="post-catagory">{{ post.category }}</a>
+                     <a href="#" class="post-title">
+                        <h6>{{ post.Title }}</h6>
+                        <p class="post-date">{{ post.published_date }}</span></p>
+                     </a>
+                     <div class="post-meta">
+                        <p>{{ post.textarea | safe }}</p>
+                        <div class="newspaper-post-like d-flex align-items-center justify-content-between">
+                           <!-- Tags -->
+                           <!-- Post Like & Post Comment -->
+                           <div class="d-flex align-items-center post-like--comments">
+                              <div class="entry__cat">
+                                 <h5>Share on : </h5>
+                                 <span class="entry__tax-list">
+                                 {% post_to_twitter "New Article from MurangaJournal: {{ post.Title }}. Check it out!" object_or_url "Post to Twitter" %}
+                                 {% post_to_whatsapp object_or_url "Share via WhatsApp" %}
+                                 {% post_to_facebook object_or_url "Post to Facebook" %}
+                                 </span>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+    <div class="col-12 col-lg-4">
+        <!-- Corona Widget -->
+        {% corona %}
+        <!-- Popular news Widget -->
+        {% show_latest_posts %}
+    </div>
 </div>
 {% endblock %}

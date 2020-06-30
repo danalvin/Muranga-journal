@@ -1,25 +1,32 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block content %}
-            <div class="row">
-                <div class="col-12 col-lg-8">
-                    
 <div class="row">
-    {% for post in posts %}
-                        <div class="col-12 col-md-6">
-                            <div class="single-blog-post style-3">
-                                <div class="post-thumb">
-                                    <a href="{% url 'blog:blog-details'  post.slug %}"><img class='blogimg' src="{{ post.image.url }}" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="{{ post.category.get_absolute_url }}" class="post-catagory">{{ post.category }}</a>
-                                    <a href="{% url 'blog:blog-details'  post.slug %}" class="post-title">
-                                        <h6>{{ post.Title }}</h6>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+   <div class="col-12 col-lg-8">
+      <div class="row">
+         {% for post in posts %}
+         <div class="col-12 col-md-6">
+            <div class="single-blog-post style-3">
+               <div class="post-thumb">
+                  <a href="{% url 'blog:blog-details'  post.slug %}"><img class='blogimg' src="{{ post.image.url }}" alt=""></a>
+               </div>
+               <div class="post-data">
+                  <a href="{{ post.category.get_absolute_url }}" class="post-catagory">{{ post.category }}</a>
+                  <a href="{% url 'blog:blog-details'  post.slug %}" class="post-title">
+                     <h6>{{ post.Title }}</h6>
+                  </a>
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+    <div class="col-12 col-lg-4">
+        <!-- Corona Widget -->
+        {% corona %}
+        <!-- Popular news Widget -->
+        {% show_latest_posts %}
+    </div>
 
-    {% endfor %}
 </div>
 {% endblock %}
