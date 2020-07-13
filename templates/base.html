@@ -7,6 +7,7 @@
       <meta name="description" content="">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="google-site-verification" content="9Brgu1IfpcmCWO8eFM5ic2S2D7KbMXHbFNG4bAluVoI" />
       <meta property="og:image" content={% if post %} "{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{{ post.image.url }}{% endblock %}{% else %} "Mjournal" {% endif %}" />
       <meta property="og:title" content= {% if post %} '{{ post.Title }}' {% else %} "Mjournal" {% endif %} />
       <meta property="og:url" content= {% if post %} '{{ request.build_absolute_uri }}{{ post.image.url.get_absolute_url }}' {% else %} "Mjournal" {% endif %} />
